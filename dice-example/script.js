@@ -6,6 +6,7 @@ let player1Ties = 0;
 let player2Wins = 0;
 let player2Losses = 0;
 let player2Ties = 0;
+let roundCount = 0;
 
 function editNames(){
     player1 = prompt("Change Player1 Name");
@@ -21,17 +22,22 @@ function editNames(){
 }
 
 function updateScore(){
-   console.log("Displaying scores--");
-   document.querySelector(".winOne").innerHTML = `Wins: ${player1Wins}`;
-   document.querySelector(".lossOne").innerHTML = `Loses: ${player1Losses}`;
-   document.querySelector(".tieOne").innerHTML = `Ties: ${player1Ties}`;
-   document.querySelector(".winTwo").innerHTML = `Wins: ${player2Wins}`;
-   document.querySelector(".lossTwo").innerHTML = `Loses: ${player2Losses}`;
-   document.querySelector(".tieTwo").innerHTML = `Ties: ${player2Ties}`;
-   console.log("Score set");
+    console.log("Displaying scores--");
+    document.querySelector(".winOne").innerHTML = `Wins: ${player1Wins}`;
+    document.querySelector(".lossOne").innerHTML = `Loses: ${player1Losses}`;
+    document.querySelector(".tieOne").innerHTML = `Ties: ${player1Ties}`;
+    document.querySelector(".winTwo").innerHTML = `Wins: ${player2Wins}`;
+    document.querySelector(".lossTwo").innerHTML = `Loses: ${player2Losses}`;
+    document.querySelector(".tieTwo").innerHTML = `Ties: ${player2Ties}`;
+    console.log("Score set successfull");
 }
 
 function rollTheDice(){
+   // Set a game to 5 rounds
+    if (roundCount >= 5) {
+        return; 
+    }
+
     let diceNum1 = document.querySelector('.img1');
     let diceNum2 = document.querySelector(".img2");
 
@@ -59,9 +65,34 @@ function rollTheDice(){
             player1Wins++;
             player2Losses++;
         }
+
+        roundCount++;
         updateScore();
 
+        if (roundCount >= 5) {
+            showWinner();
+        }
+
     }, 2500);
+}
+
+function showWinner(){
+    let winner = '';
+    if (player1Wins > player2Wins) {
+        winner = `${player1} wins the game!`;
+    } else if (player2Wins > player1Wins) {
+        winner = `${player2} wins the game!`;
+    } else {
+        winner = "It's a tie!";
+    }
+
+    //maybe a prompt instead to handle the end of a game?
+    let endGame = document.createElement('div');
+    endGame.innerHTML = `<div class="gameEndBanner">
+                            <p>Congratulations! ${winner}</p>
+                            <button class="btn" onclick="newGame()">New Game</button>
+                        </div>`;
+    document.body.appendChild(endGame);
 }
 
 function newGame(){
@@ -71,7 +102,14 @@ function newGame(){
     player2Wins = 0;
     player2Losses = 0;
     player2Ties = 0;
+    roundCount = 0;
 
     updateScore();
     document.querySelector('h1').innerHTML = "Play!";
+    
+    //remove the previous game result from screen
+    let endGame = document.querySelector('.gameEndBanner');
+    if (endGame) {
+        document.body.removeChild(endGame);
+    }
 }
