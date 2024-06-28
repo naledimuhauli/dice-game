@@ -29,11 +29,16 @@ p{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 img{
-    width: 100%;
+    width: 150px;
+    height: 150px;
 }
 .btn{
-    background: blue;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background: linear-gradient(69.8deg, rgb(25, 49, 108) 2.8%, rgb(1, 179, 201) 97.8%);
+    font-family: Arial;
     border-radius: 7px;
-    color: aquamarine;
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+    margin: 10px;
+
 }
