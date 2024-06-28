@@ -1,0 +1,49 @@
+.container{
+    width: 70%;
+    margin: auto;
+    text-align: center;
+    
+}
+
+.dice{
+    text-align: center;
+    display: inline-block;
+    margin: 15px;
+}
+
+body{
+    background-color: black;
+    margin: 0;
+}
+
+h1{
+    margin: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-shadow: 5px 0 rgb(248, 237, 217);
+    font-size: 4.5rem;
+    color: rgb(139, 18, 18);
+    text-align: center;
+}
+p{
+    font-size: 2rem;
+    color: rgb(167, 15, 15);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+img{
+    width: 150px;
+    height: 150px;
+}
+.btn{
+    background: linear-gradient(69.8deg, rgb(25, 49, 108) 2.8%, rgb(1, 179, 201) 97.8%);
+    font-family: Arial;
+    border-radius: 7px;
+    color: rgb(242, 245, 244);
+    padding: 10px;
+    margin: 30px;
+    font-size: 15px;
+
+}
+
+.result{
+    color: white;
+}
