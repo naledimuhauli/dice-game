@@ -1,5 +1,5 @@
-let player1 = "Player1";
-let player2 = "Player2";
+let player1 = "Player 1";
+let player2 = "Player 2";
 let player1Wins = 0;
 let player1Losses = 0;
 let player1Ties = 0;
@@ -8,34 +8,26 @@ let player2Losses = 0;
 let player2Ties = 0;
 let roundCount = 0;
 
-function editNames(){
-    player1 = prompt("Change Player1 Name");
-    player2 = prompt("Change Player2 Name");
-
-    if(player1.length < 1 || player2.length < 1){
-        alert('Please enter valid names');
-        return;
-    }
+function editNames() {
+    player1 = prompt("Change Player 1 Name") || player1;
+    player2 = prompt("Change Player 2 Name") || player2;
 
     document.querySelector("p.Player1").innerHTML = player1;
     document.querySelector("p.Player2").innerHTML = player2;
 }
 
-function updateScore(){
-    console.log("Displaying scores--");
+function updateScore() {
     document.querySelector(".winOne").innerHTML = `Wins: ${player1Wins}`;
-    document.querySelector(".lossOne").innerHTML = `Loses: ${player1Losses}`;
+    document.querySelector(".lossOne").innerHTML = `Losses: ${player1Losses}`;
     document.querySelector(".tieOne").innerHTML = `Ties: ${player1Ties}`;
     document.querySelector(".winTwo").innerHTML = `Wins: ${player2Wins}`;
-    document.querySelector(".lossTwo").innerHTML = `Loses: ${player2Losses}`;
+    document.querySelector(".lossTwo").innerHTML = `Losses: ${player2Losses}`;
     document.querySelector(".tieTwo").innerHTML = `Ties: ${player2Ties}`;
-    console.log("Score set successfull");
 }
 
-function rollTheDice(){
-   // Set a game to 5 rounds
+function rollTheDice() {
     if (roundCount >= 5) {
-        return; 
+        return;
     }
 
     let diceNum1 = document.querySelector('.img1');
@@ -76,7 +68,7 @@ function rollTheDice(){
     }, 2500);
 }
 
-function showWinner(){
+function showWinner() {
     let winner = '';
     if (player1Wins > player2Wins) {
         winner = `${player1} wins the game!`;
@@ -85,24 +77,18 @@ function showWinner(){
     } else {
         winner = "It's a tie!";
     }
-
-    //you did the right thing, you were just supposed to select the container so it can
-    // override the whole html section instead on creating a new element 
-    let endGame = document.querySelector('.container');
+    //Remove game and show results screen
+    let endGame = document.querySelector('.endgame-container');
     endGame.innerHTML = `<div class="gameEndBanner">
-                           <p> <img src="images/dancing.gif" class="dancing-gif"></p>
-                            <p>Congratulations! ${winner}</p>
-                            <button class="btn new-game" onclick="newGame()">New Game</button>
+                           <p><img src="images/dancing.gif" class="dancing-gif"></p>
+                           <p>Congratulations! ${winner}</p>
+                           <button class="btn new-game" onclick="newGame()">New Game</button>
                         </div>`;
-    document.body.appendChild(endGame);
+    document.querySelector('.game-container').style.display = 'none';
+    endGame.style.display = 'block';
 }
-//added a dancing gif so the page can be more appealing 
 
-let newGameBtn = document.querySelector('.new-game');
-newGameBtn.addEventListener('click',  newGame);
-//the New Game button wasnt working so i thought maybe i should add an event listener instead but its still not working
-
-function newGame(){
+function newGame() {
     player1Wins = 0;
     player1Losses = 0;
     player1Ties = 0;
@@ -114,12 +100,42 @@ function newGame(){
     updateScore();
     document.querySelector('h1').innerHTML = "Play!";
 
+    // Reset to start a new game
+    let gameContainer = document.querySelector('.game-container');
+    gameContainer.innerHTML = `<h1>Play!</h1>
+        <div class="game-area">
+            <div class="dice">
+                <p class="Player1">${player1}</p>
+                <img src="images/dice-6.jpg" alt="dice 6" class="img1">
+                <div class="score">
+                    <p>Score</p>
+                    <p>
+                        <span class="winOne">Wins: 0</span>
+                        <br> <span class="lossOne">Loses: 0</span>
+                        <br> <span class="tieOne">Ties: 0</span>
+                    </p>
+                </div>
+            </div>
+            <div class="middle">
+                <button type="button" class="btn" onclick="newGame()">New Game</button>
+                <button type="button" class="btn" onclick="rollTheDice()">Roll The Dice</button>
+                <button type="button" class="btn" onclick="editNames()">Edit Names</button>
+            </div>
+            <div class="dice">
+                <p class="Player2">${player2}</p>
+                <img src="images/dice-6.jpg" alt="dice 6" class="img2">
+                <div class="score">
+                    <p>Score</p>
+                    <p>
+                        <span class="winTwo">Wins: 0</span>
+                        <br> <span class="lossTwo">Loses: 0</span>
+                        <br> <span class="tieTwo">Ties: 0</span>
+                    </p>
+                </div>
+            </div>
+        </div>`;
     
-    //remove the previous game result from screen
-    let endGame = document.querySelector('.gameEndBanner');
-    if (endGame) {
-        document.body.removeChild(endGame);
-    }
+        //remove game results from screen
+    document.querySelector('.endgame-container').style.display = 'none';
+    gameContainer.style.display = 'block';
 }
-
-
