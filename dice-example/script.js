@@ -86,14 +86,21 @@ function showWinner(){
         winner = "It's a tie!";
     }
 
-    //maybe a prompt instead to handle the end of a game?
-    let endGame = document.createElement('div');
+    //you did the right thing, you were just supposed to select the container so it can
+    // override the whole html section instead on creating a new element 
+    let endGame = document.querySelector('.container');
     endGame.innerHTML = `<div class="gameEndBanner">
+                           <p> <img src="images/dancing.gif" class="dancing-gif"></p>
                             <p>Congratulations! ${winner}</p>
-                            <button class="btn" onclick="newGame()">New Game</button>
+                            <button class="btn new-game" onclick="newGame()">New Game</button>
                         </div>`;
     document.body.appendChild(endGame);
 }
+//added a dancing gif so the page can be more appealing 
+
+let newGameBtn = document.querySelector('.new-game');
+newGameBtn.addEventListener('click',  newGame);
+//the New Game button wasnt working so i thought maybe i should add an event listener instead but its still not working
 
 function newGame(){
     player1Wins = 0;
@@ -106,6 +113,7 @@ function newGame(){
 
     updateScore();
     document.querySelector('h1').innerHTML = "Play!";
+
     
     //remove the previous game result from screen
     let endGame = document.querySelector('.gameEndBanner');
@@ -113,3 +121,5 @@ function newGame(){
         document.body.removeChild(endGame);
     }
 }
+
+
