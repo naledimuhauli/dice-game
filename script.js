@@ -105,14 +105,14 @@ function newGame() {
     gameContainer.innerHTML = `<h1>Play!</h1>
         <div class="game-area">
             <div class="dice">
-                <p class="Player1">${player1}</p>
+                <p class="Player1">Player 1</p>
                 <img src="images/dice-6.jpg" alt="dice 6" class="img1">
                 <div class="score">
                     <p>Score</p>
                     <p>
-                        <span class="winOne">Wins: 0</span>
-                        <br> <span class="lossOne">Loses: 0</span>
-                        <br> <span class="tieOne">Ties: 0</span>
+                        <span class="winOne">Wins</span>
+                        <br> <span class="lossOne">Loses</span>
+                        <br> <span class="tieOne">Ties</span>
                     </p>
                 </div>
             </div>
@@ -122,14 +122,14 @@ function newGame() {
                 <button type="button" class="btn" onclick="editNames()">Edit Names</button>
             </div>
             <div class="dice">
-                <p class="Player2">${player2}</p>
+                <p class="Player2">Player 2</p>
                 <img src="images/dice-6.jpg" alt="dice 6" class="img2">
                 <div class="score">
                     <p>Score</p>
                     <p>
-                        <span class="winTwo">Wins: 0</span>
-                        <br> <span class="lossTwo">Loses: 0</span>
-                        <br> <span class="tieTwo">Ties: 0</span>
+                        <span class="winTwo">Wins</span>
+                        <br> <span class="lossTwo">Loses</span>
+                        <br> <span class="tieTwo">Ties</span>
                     </p>
                 </div>
             </div>
