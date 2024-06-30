@@ -2,30 +2,50 @@
     width: 70%;
     margin: auto;
     text-align: center;
+    
 }
+
+
+.game-area {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.middle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.middle .btn {
+    margin: 10px 0;
+}
+
 
 .dice{
     text-align: center;
     display: inline-block;
-    margin: 10px;
+    margin: 15px;
 }
 
 body{
-    background-color: pink;
+    background-color: black;
     margin: 0;
 }
 
 h1{
     margin: 30px;
-    font-family: Arial, Helvetica, sans-serif;
-    text-shadow: 5px 0 orange;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-shadow: 5px 0 rgb(248, 237, 217);
     font-size: 4.5rem;
-    color: blue;
+    color: rgb(139, 18, 18);
     text-align: center;
 }
 p{
     font-size: 2rem;
-    color: blue;
+    color: rgb(167, 15, 15);
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 img{
@@ -36,13 +56,14 @@ img{
     background: linear-gradient(69.8deg, rgb(25, 49, 108) 2.8%, rgb(1, 179, 201) 97.8%);
     font-family: Arial;
     border-radius: 7px;
-    color: white;
-    font-size: 20px;
+    color: rgb(242, 245, 244);
     padding: 10px;
-    margin: 10px;
+    margin: 30px;
+    font-size: 15px;
 
 }
-.dancing-gif{
-    width: 150px;
-    height: 150px;
+
+.result{
+    color: white;
 }
+

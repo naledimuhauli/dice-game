@@ -7,28 +7,46 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
+    <div class="container game-container">
         <h1>Play!</h1>
+        <div class="game-area">
+            <div class="dice">
+                <p class="Player1">Player 1</p>
+                <img src="images/dice-6.jpg" alt="dice 6" class="img1">
+                <div class="score">
+                    <p>Score</p>
+                    <p>
+                        <span class="winOne">Wins</span>
+                        <br> <span class="lossOne">Loses</span>
+                        <br> <span class="tieOne">Ties</span>
+                    </p>
+                </div>
+            </div>
 
-    <div class="dice">
-        <p class="Player1">Player1</p>
-        <img src="images/dice6.png" alt="dice 6" class="img1">
+            <div class="middle">
+                <button type="button" class="btn" onclick="newGame()">New Game</button>
+                <button type="button" class="btn" onclick="rollTheDice()">Roll The Dice</button>
+                <button type="button" class="btn" onclick="editNames()">Edit Names</button>
+            </div>
+
+            <div class="dice">
+                <p class="Player2">Player 2</p>
+                <img src="images/dice-6.jpg" alt="dice 6" class="img2">
+                <div class="score">
+                    <p>Score</p>
+                    <p>
+                        <span class="winTwo">Wins</span>
+                        <br> <span class="lossTwo">Loses</span>
+                        <br> <span class="tieTwo">Ties</span>
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="dice">
-        <p class="Player2">Player2</p>
-        <img src="images/dice6.png" alt="dice 6" class="img2">
+
+    <div class="container endgame-container" style="display: none;">
+        <!--Display winner screen-->
     </div>
-   
-    <div class="container bottom">
-        <button type="button" class="btn" onclick="rollTheDice()">Roll The Dice</button>
-        
-    </div>
-    <div class="container bottom">
-        <button type="button" class="btn" onclick="editNames()"> Edit Names</button>
-        
-    </div>
-    </div>
-    
 
     <script src="script.js"></script>
 </body>
